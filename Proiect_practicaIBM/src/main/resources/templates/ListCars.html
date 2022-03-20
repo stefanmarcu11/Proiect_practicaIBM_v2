@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <title>Cars</title>
+    <style type="text/css">
+        footer{
+            background:dodgerblue;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 20%;
+            color: white;
+            text-align: center;
+        }
+        footer p{
+            padding: 20px 0;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div>
+            <a class="navbar-brand" href="home"><img class="imagenav" type="image/png" th:src="@{/images/garage_v2.png}"></a>
+            <a class="navbar-brand" href="home">Auto D&S</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="cars">Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addcars">Registration Cars</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Garage
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="garageshow">Show List</a></li>
+                        <li><a class="dropdown-item" href="addgarage">Registration Garage</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><b>Id</b></td>
+            <td><b>Număr înmatriculare</b></td>
+            <td><b>Marca</b></td>
+            <td><b>Model</b></td>
+            <td><b>Putere</b></td>
+            <td><b>Tip</b></td>
+            <td><b>An aparitie</b></td>
+            <td><b>Consum (100 km)</b></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="car:${carsList}">
+            <td><a style="text-decoration: none;"th:href="@{/cars/} + ${car.id}" th:text="${car.id}"></a></td>
+            <td th:text="${car.regnumber}"></td>
+            <td th:text="${car.carbrand}"></td>
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.power}"></td>
+            <td th:text="${car.type}"></td>
+            <td th:text="${car.year}"></td>
+            <td th:text="${car.consumption}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<footer><p>Web Development with Spring Boot, IBM Romania</p></footer>
+</body>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+</html>

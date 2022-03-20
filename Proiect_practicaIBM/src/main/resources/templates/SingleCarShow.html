@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show car by registration number</title>
+</head>
+<body>
+<div>
+   <!-- <table>
+        <tr th:each="car:${carsList}">
+            <th>Marca</th>
+            <td th:text="${car.marca}"></td>
+        </tr>
+
+        <tr  th:each="car:${carsList}">
+            <th>Model</th>
+            <td th:text="${car.model}"></td>
+        </tr>
+        <tr th:each="car:${carsList}">
+
+            <th>Putere</th>
+            <td th:text="${car.power}"></td>
+        </tr>
+        <tr th:each="car:${carsList}">
+            <th>Tipul caroseriei</th>
+            <td th:text="${car.type}"></td>
+        </tr>
+
+        <tr th:each="car:${carsList}">
+            <th>An</th>
+            <td th:text="${car.an}"></td>
+        </tr>
+
+        <tr th:each="car:${carsList}">
+            <th>Consum</th>
+            <td th:text="${car.consum}"></td>
+        </tr>-->
+
+        <table class="table table-striped">
+            <tr>
+                <td>Id</td>
+                <td th:test="${carId.id}"></td>
+            </tr>
+            <tr>
+                <td>Registration Number</td>
+                <td th:text="${carId.regnumber}"></td>
+            </tr>
+            <tr>
+                <td>Car brand</td>
+                <td th:text="${carId.carbrand}"></td>
+            </tr>
+            <tr>
+                <td>Model</td>
+                <td th:text="${carId.model}"></td>
+            </tr>
+                <td>Power</td>
+                <td th:text="${carId.power}"></td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td th:text="${carId.type}"></td>
+            </tr>
+            <tr>
+                <td>Year of appearance</td>
+                <td th:text="${carId.year}"></td>
+            </tr>
+            <tr>
+                <td>Consumption (100 km)</td>
+                <td th:text="${carId.consumption}"></td>
+            </tr>
+        </table>
+        <!--<tr>
+            <td colspan="2" align="right">  <a th:href="@{/cars/} + ${car.regnumber}+ '/SingleCarEdit'" th:text="#{command.edit}">EDIT</a></td>
+        </tr>-->
+    </table>
+</div>
+
+
+</body>
+</html>
