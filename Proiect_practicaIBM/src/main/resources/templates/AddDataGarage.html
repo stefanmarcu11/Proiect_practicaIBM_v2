@@ -60,7 +60,7 @@
                     <a class="nav-link active" aria-current="page" href="cars">Cars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="addcars">Registration Cars</a>
+                    <a class="nav-link" href="addcar">Registration Cars</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,18 +76,18 @@
         </div>
     </div>
 </nav>
-    <form id="formdata" action="#" th:action="@{/addgarage}" th:object="${garage}" method="post" style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
+    <form id="formdata" action="#" th:action="@{/submitGarage}" th:object="${garage}" method="post" style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
             <div>
                 <label><b>Address</b></label>
-                <input placeholder="Add address" type="text" th:field="*{address}" name="address"/><br/>
+                <input placeholder="Add address" type="text" th:field="*{address}" name="address" required/><br/>
             </div>
             <div>
                 <label><b>Phone</b></label>
-                <input placeholder="Add number phone" type="text" th:field="*{phone}" name="phone"/><br/>
+                <input placeholder="Add number phone" type="text" th:field="*{phone}" name="phone" required minlength="10" maxlength="10"/><br/>
             </div>
         <div>
             <label><b>Dimensiune</b></label>
-            <input placeholder="Introduceți numărul de mașini" type="text" th:field="*{nr_cars}" name="nr_cars"/><br/>
+            <input placeholder="Introduceți numărul de mașini" type="text" th:field="*{nr_cars}" name="nr_cars" required/><br/>
         </div>
     <div class="button">
         <a href="addgarage"><button id="btadd" type="submit" class="btn btn-outline-primary"><img class="image_save" th:src="@{/images/floppy-disk.png}">Save</button></a>

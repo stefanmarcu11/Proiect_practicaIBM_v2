@@ -9,11 +9,6 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.*;
 
-
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequiredArgsConstructor
 public class CarsController {
@@ -27,7 +22,7 @@ public class CarsController {
         return "ListCars";
     }
 
-    @GetMapping(value="addcars")
+    @GetMapping(value="/addcar")
     public String addCar(Model model){
         Cars car=new Cars();
         model.addAttribute("cars",car);
@@ -36,7 +31,7 @@ public class CarsController {
     @PostMapping(value = "/submitCar")
     public String submitCar(@ModelAttribute Cars cars){
         service.save(cars);
-        return "ListCars";
+        return "redirect:/cars";
     }
 
 
