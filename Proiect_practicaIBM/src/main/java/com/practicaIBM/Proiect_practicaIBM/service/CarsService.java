@@ -1,7 +1,7 @@
 package com.practicaIBM.Proiect_practicaIBM.service;
 
-import com.practicaIBM.Proiect_practicaIBM.model.Cars;
-import com.practicaIBM.Proiect_practicaIBM.repository.CarsRepository;
+import com.practicaIBM.Proiect_practicaIBM.model.Car;
+import com.practicaIBM.Proiect_practicaIBM.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,28 +12,27 @@ import java.util.Optional;
 public class CarsService {
 
     @Autowired
-    CarsRepository carsRepository;
+    CarRepository carsRepository;
 
-    public List<Cars> getcarsList() {
+    public List<Car> getcarsList() {
 
-        return (List<Cars>) carsRepository.findAll();
+        return (List<Car>) carsRepository.findAll();
     }
 
-
-    public void save(Cars car) {
+    public void save(Car car) {
         carsRepository.save(car);
 
     }
-    public void delete(Cars car){
+    public void deleteById(int id){
 
-        carsRepository.delete(car);
+        carsRepository.deleteById(id);
     }
 
-    public Cars findcarById(Cars car){
+    public Car findcarById(Car car){
 
         return carsRepository.findById(car.getId()).get();
     }
-    public Optional<Cars> findById(int id) {
+    public Optional<Car> findById(int id) {
 
         return carsRepository.findById(id);
     }

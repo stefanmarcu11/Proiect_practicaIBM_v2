@@ -34,10 +34,19 @@
         tr:hover {
             background-color:#86b7fe;
         }
-        #tablelist{
+        .tablelist{
+            width: 100%;
             margin-top:20px;
-            padding-left:30%;
+
         }
+        td{
+            text-align: center;
+        }
+        .tablelist img{
+            width: 25px;
+            height: 25px;
+        }
+
     </style>
 </head>
 <body>
@@ -76,7 +85,7 @@
         </div>
     </div>
 </nav>
-<div id="tablelist">
+<div class="tablelist">
     <table>
         <thead>
         <tr>
@@ -84,6 +93,7 @@
             <td><b>Address</b></td>
             <td><b>Number phone</b></td>
             <td><b>Number car</b></td>
+            <td><b>Actions</b></td>
         </tr>
         </thead>
         <tbody>
@@ -92,6 +102,20 @@
             <td th:text="${garage.address}"></td>
             <td th:text="${garage.phone}"></td>
             <td th:text="${garage.nr_cars}"></td>
+            <td class="actions">
+                <div>
+                    <a style="text-decoration: none;"th:href="@{/garageshow/}+${garage.id}">
+                        <button>Edit</button>
+                    </a>
+                </div>
+                <div>
+                    <form th:action="@{/deleteGarage}" th:object="${garage}" method="post">
+                        <input class="d-none" name="garageId" th:value="${garage.id}">
+                        <button>Delete</button>
+                    </form>
+                </div>
+
+            </td>
         </tr>
         </tbody>
     </table>

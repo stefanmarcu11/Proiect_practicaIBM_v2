@@ -20,6 +20,10 @@
             padding: 20px 0;
             margin-bottom: 0;
         }
+        table img{
+            width: 25px;
+            height: 25px;
+        }
     </style>
 </head>
 <body>
@@ -70,11 +74,12 @@
             <td><b>Tip</b></td>
             <td><b>An aparitie</b></td>
             <td><b>Consum (100 km)</b></td>
+            <td>Attributes</td>
         </tr>
         </thead>
         <tbody>
         <tr th:each="car:${carsList}">
-            <td><a style="text-decoration: none;"th:href="@{/cars/}+${car.id}" th:text="${car.id}"></a></td>
+            <td th:text="${car.id}"></td>
             <td th:text="${car.regnumber}"></td>
             <td th:text="${car.carbrand}"></td>
             <td th:text="${car.model}"></td>
@@ -82,6 +87,19 @@
             <td th:text="${car.type}"></td>
             <td th:text="${car.year}"></td>
             <td th:text="${car.consumption}"></td>
+            <td class="actions">
+                <div>
+                    <a style="text-decoration: none;"th:href="@{/cars/}+${car.id}">
+                        <button>Edit</button>
+                    </a>
+                </div>
+                <div>
+                    <form th:action="@{/deleteCar}" th:object="${car}" method="post">
+                        <input class="d-none" name="carId" th:value="${car.id}">
+                        <button>Delete</button>
+                    </form>
+                </div>
+            </td>
         </tr>
         </tbody>
     </table>

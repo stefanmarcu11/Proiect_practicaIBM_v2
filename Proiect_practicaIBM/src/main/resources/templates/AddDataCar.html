@@ -82,11 +82,11 @@
 
 <form id="formdata" action="#" th:action="@{/submitCar}" th:object="${cars}" method="post" style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
    <div>
-       <label><b>Număr de înregistrare</b></label>
+       <label><b>Registrtion number</b></label>
        <input placeholder="Adăugați numărul de înmatriculare" type="text" th:field="${cars.regnumber}" name="regnumber"/><br/>
    </div>
     <div>
-        <label><b>Marcă</b></label>
+        <label><b>Car brand</b></label>
         <input placeholder="Adăugați marca mașinii" type="text" th:field="${cars.carbrand}" name="carbrand"/><br/>
     </div>
     <div>
@@ -94,19 +94,19 @@
         <input placeholder="Adăugați modelul mașinii" type="text" th:field="${cars.model}" name="model"/><br/>
     </div>
     <div>
-        <label><b>Putere</b></label>
+        <label><b>Power (HP)</b></label>
         <input placeholder="Adăugați puterea" type="text" th:field="${cars.power}" name="power"/><br/>
     </div>
     <div>
-        <label><b>Tip carosabilă</b></label>
+        <label><b>Type</b></label>
         <input placeholder="Adăugați tipul carosabilei" type="text" th:field="${cars.type}"name="type"/><br/>
     </div>
     <div>
-        <label><b>An</b></label>
+        <label><b>Year of appearance</b></label>
         <input placeholder="Adăugați anul fabricării" type="text" th:field="${cars.year}" name="year"/><br/>
     </div>
     <div>
-        <label><b>Consum (100 km)</b></label>
+        <label><b>Consumption (100 km)</b></label>
         <input placeholder="Adăugați consumul" type="text" th:field="${cars.consumption}" name="consumption"/><br/>
     </div>
 

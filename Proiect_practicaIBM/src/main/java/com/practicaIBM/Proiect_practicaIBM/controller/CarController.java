@@ -1,6 +1,8 @@
 package com.practicaIBM.Proiect_practicaIBM.controller;
 
-import com.practicaIBM.Proiect_practicaIBM.model.Cars;
+import com.practicaIBM.Proiect_practicaIBM.exception.NotFoundException;
+import com.practicaIBM.Proiect_practicaIBM.model.Car;
+import com.practicaIBM.Proiect_practicaIBM.model.Garage;
 import com.practicaIBM.Proiect_practicaIBM.service.CarsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,11 @@ import org.springframework.ui.Model;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @Controller
 @RequiredArgsConstructor
-public class CarsController {
+public class CarController {
 
     @Autowired
     CarsService service;
@@ -24,16 +28,20 @@ public class CarsController {
 
     @GetMapping(value="/addcar")
     public String addCar(Model model){
-        Cars car=new Cars();
+        Car car=new Car();
         model.addAttribute("cars",car);
         return "AddDataCar";
     }
+
     @PostMapping(value = "/submitCar")
-    public String submitCar(@ModelAttribute Cars cars){
+    public String submitCar(@ModelAttribute Car cars){
         service.save(cars);
         return "redirect:/cars";
     }
 
-
-
+    @PostMapping(value="/deleteCar")
+    public String deleteCar(@RequestParam("carId") int id){
+        service.deleteById(id);
+        return"redirect:/cars";
+    }
 }

@@ -14,3 +14,37 @@
 .container2{
     background-color:burlywood;
 }
+.container_table{
+    display:flex;
+    justify-content: center;
+    margin-top: 30px;
+    color: black;
+}
+.container_table td{
+    font-family: Italic;
+}
+.tabledatacar{
+    border:1px solid;
+    background-color:lightgoldenrodyellow;
+    gap:20px;
+}
+.tabledata{
+    padding: 5px;
+}
+.savadata{
+    gap: 10px;
+    display:flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left:10px;
+}
+.savadata input{
+    width: 100%;
+}
+.actions{
+    display:flex;
+    padding-right:5px;
+    justify-content: space-around;
+}
+
+

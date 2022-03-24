@@ -1,6 +1,7 @@
 package com.practicaIBM.Proiect_practicaIBM.exception;
 
-import com.practicaIBM.Proiect_practicaIBM.model.Cars;
+import com.practicaIBM.Proiect_practicaIBM.model.Car;
+import com.practicaIBM.Proiect_practicaIBM.model.Garage;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -9,11 +10,8 @@ public class NotFoundException extends RuntimeException {
 
     private String objIdentifier;
 
-    public <T> NotFoundException(Class<T> cls, String regnumber) {
-        super(cls.getSimpleName() + " with id: " + regnumber+ " does not exist!");
-    }
-
-    public NotFoundException(Class<Cars> carsClass, int id) {
+    public <T> NotFoundException(Class<T> cls, int id) {
+        super(cls.getSimpleName() + " with id: " + id+ " does not exist!");
     }
 
     public String getObjIdentifier() {

@@ -2,9 +2,153 @@
 <html lang="en" th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Car</title>
+    <title>Auto D&S | Edit Car</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <meta charset="UTF-8">
+    <title>Auto D&S|Show single car</title>
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div>
+            <a class="navbar-brand" th:href="@{/home}"><img class="imagenav" type="image/png" th:src="@{/images/garage_v2.png}"></a>
+            <a class="navbar-brand" th:href="@{/home}">Auto D&S</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="cars">Cars</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addcar">Registration Cars</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Garage
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="garageshow">Show List</a></li>
+                        <li><a class="dropdown-item" href="addgarage">Registration Garage</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="savadata">
+    <form action="#" th:action="@{/cars/} + ${carId.id}" th:object="${carId}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <table>
+            <tr>
+                <th>
+                    <label>Registration number</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{regnumber}" />
+                    <span th:if="${#fields.hasErrors('regnumber')}" class="error" th:errors="*{regnumber}">MISSING FN</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Car brand:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{carbrand}"/>
+                    <span th:if="${#fields.hasErrors('carbrand')}" class="error" th:errors="*{carbrand}">MISSING LN</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Model:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{model}" />
+                    <span th:if="${#fields.hasErrors('model')}" class="error" th:errors="*{model}">MISSING UN</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Power (HP):</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{power}"/>
+                    <span th:if="${#fields.hasErrors('power')}" class="error" th:errors="*{power}">MISSING LN</span>
+                </td>
+                <td></td>
+
+            </tr>
+            <tr>
+                <th>
+                    <label>Type:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{type}"/>
+                    <span th:if="${#fields.hasErrors('type')}" class="error" th:errors="*{type}">MISSING LN</span>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <th>
+                    <label>Year of appearance:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{year}"/>
+                    <span th:if="${#fields.hasErrors('year')}" class="error" th:errors="*{year}">MISSING LN</span>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <th>
+                    <label>Consumption (100 km):</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{consumption}"/>
+                    <span th:if="${#fields.hasErrors('consumption')}" class="error" th:errors="*{consumption}">MISSING LN</span>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    <a th:href="@{/cars}"><button type="submit">Edit</button></a>
+                </td>
+                <td>
+                    <a href="#" th:href="@{/cars}"><button>CANCEL</button></a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 </body>
+<script th:src="@{/js/bootstrap.min.js}"></script>
 </html>

@@ -1,5 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto D&S | Edit Garage</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
 <head>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
@@ -10,8 +17,8 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="container-fluid">
         <div>
-            <a class="navbar-brand" href="home"><img class="imagenav" type="image/png" th:src="@{/images/garage_v2.png}"></a>
-            <a class="navbar-brand" href="home">Auto D&S</a>
+            <a class="navbar-brand" th:href="@{/home}"><img class="imagenav" type="image/png" th:src="@{/images/garage_v2.png}"></a>
+            <a class="navbar-brand" th:href="@{/home}">Auto D&S</a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -42,45 +49,59 @@
         </div>
     </div>
 </nav>
-<div class="container_table">
-        <table class="tabledatacar">
+<div class="savadata">
+    <form action="#" th:action="@{/garageshow/} + ${garageId.id}" th:object="${garageId}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <table>
             <tr>
-                <td>Id</td>
-                <td th:test="${carId.id}"></td>
-            </tr>
-            <tr>
-                <td>Registration Number</td>
-                <td th:text="${carId.regnumber}"></td>
-            </tr>
-            <tr>
-                <td>Car brand</td>
-                <td th:text="${carId.carbrand}"></td>
-            </tr>
-            <tr>
-                <td>Model</td>
-                <td th:text="${carId.model}"></td>
-            </tr>
-                <td>Power</td>
-                <td th:text="${carId.power}"></td>
-            </tr>
-            <tr>
-                <td>Type</td>
-                <td th:text="${carId.type}"></td>
-            </tr>
-            <tr>
-                <td>Year of appearance</td>
-                <td th:text="${carId.year}"></td>
-            </tr>
-            <tr>
-                <td>Consumption (100 km)</td>
-                <td th:text="${carId.consumption}"></td>
-            </tr>
+                <th>
+                    <label>Address:</label>
+                </th>
 
-        <tr>
-            <td colspan="2" align="right">  <a th:href="@{/cars/} + ${carId.id}+ '/edit'">EDIT</a></td>
-        </tr>
-    </table>
+                <td>
+                    <input type="text" th:field="*{address}" />
+                    <span th:if="${#fields.hasErrors('address')}" class="error" th:errors="*{address}">MISSING ADDRESS</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Phone:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{phone}" />
+                    <span th:if="${#fields.hasErrors('phone')}" class="error" th:errors="*{phone}">MISSING PHONE</span>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>
+                    <label>Number of cars:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{nr_cars}" />
+                    <span th:if="${#fields.hasErrors('nr_cars')}" class="error" th:errors="*{nr_cars}">MISSING NUMBER CARS</span>
+                </td>
+                <td></td>
+            </tr>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <td>
+                    <a th:href="@{/garageshow}"><button type="submit">Edit</button></a>
+                </td>
+                <td>
+                    <a href="#" th:href="@{/garageshow}"><button>CANCEL</button></a>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
+
 </body>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 </html>

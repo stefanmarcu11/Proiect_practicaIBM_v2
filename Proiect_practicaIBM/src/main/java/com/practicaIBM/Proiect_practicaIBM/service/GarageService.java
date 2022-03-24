@@ -22,9 +22,9 @@ public class GarageService {
         garageRepository.save(garage);
 
     }
-    public void delete(Garage garage){
+    public void deleteById(int id){
 
-        garageRepository.delete(garage);
+        garageRepository.deleteById(id);
     }
 
     public Garage findgarageById(Garage garage){

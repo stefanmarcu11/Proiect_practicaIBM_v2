@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "t_cars")
-public class Cars {
+public class Car {
 
 
     @Id
@@ -31,7 +31,7 @@ public class Cars {
     @Column(name="consum")
     private double consumption;
 
-    public Cars(String regnumber,String  carbrand, String model, int power, String type, int year, double consumption) {
+    public Car(String regnumber, String  carbrand, String model, int power, String type, int year, double consumption) {
         this.regnumber=regnumber;
         this.carbrand = carbrand;
         this.model = model;
@@ -41,6 +41,6 @@ public class Cars {
         this.consumption = consumption;
     }
 
-    public Cars() {
+    public Car() {
     }
 }
