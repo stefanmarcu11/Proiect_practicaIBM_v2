@@ -1,7 +1,5 @@
 package com.practicaIBM.Proiect_practicaIBM.exception;
 
-import com.practicaIBM.Proiect_practicaIBM.model.Car;
-import com.practicaIBM.Proiect_practicaIBM.model.Garage;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

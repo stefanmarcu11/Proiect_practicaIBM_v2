@@ -78,16 +78,16 @@
 </nav>
     <form id="formdata" action="#" th:action="@{/submitGarage}" th:object="${garage}" method="post" style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
             <div>
-                <label><b>Address</b></label>
+                <label><b>Address:</b></label>
                 <input placeholder="Add address" type="text" th:field="*{address}" name="address" required/><br/>
             </div>
             <div>
-                <label><b>Phone</b></label>
-                <input placeholder="Add number phone" type="text" th:field="*{phone}" name="phone" required minlength="10" maxlength="10"/><br/>
+                <label><b>Phone:</b></label>
+                <input placeholder="Add number of phone" type="text" th:field="*{phone}" name="phone" required minlength="10" maxlength="10"/><br/>
             </div>
         <div>
-            <label><b>Dimensiune</b></label>
-            <input placeholder="Introduceți numărul de mașini" type="text" th:field="*{nr_cars}" name="nr_cars" required/><br/>
+            <label><b>Dimension:</b></label>
+            <input placeholder="Add number of cars" type="text" th:field="*{nr_cars}" name="nr_cars" required/><br/>
         </div>
     <div class="button">
         <a href="addgarage"><button id="btadd" type="submit" class="btn btn-outline-primary"><img class="image_save" th:src="@{/images/floppy-disk.png}">Save</button></a>
@@ -100,5 +100,7 @@
 </body>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/script.js}"></script>
-<footer><p>Web Development with Spring Boot, IBM Romania</p></footer>
+<footer>
+    <p>Web Development with Spring Boot, IBM Romania</p>
+</footer>
 </html>

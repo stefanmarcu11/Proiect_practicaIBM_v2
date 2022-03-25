@@ -1,7 +1,8 @@
 package com.practicaIBM.Proiect_practicaIBM.controller;
 
+import com.practicaIBM.Proiect_practicaIBM.dto.GarageDto;
 import com.practicaIBM.Proiect_practicaIBM.exception.NotFoundException;
-import com.practicaIBM.Proiect_practicaIBM.model.Garage;
+import com.practicaIBM.Proiect_practicaIBM.entity.Garage;
 import com.practicaIBM.Proiect_practicaIBM.service.GarageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class SingleGarageController {
     }
 
     @PostMapping
-    public String save(@Validated Garage garage, BindingResult result, Locale locale) {
+    public String save(@Validated GarageDto garage, BindingResult result, Locale locale) {
         if (result.hasErrors()) {
             return "SingleGarageEdit";
         }

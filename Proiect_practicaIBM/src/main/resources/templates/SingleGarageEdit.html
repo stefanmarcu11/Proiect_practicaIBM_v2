@@ -59,7 +59,7 @@
                 </th>
 
                 <td>
-                    <input type="text" th:field="*{address}" />
+                    <input type="text" th:field="*{address}" required/>
                     <span th:if="${#fields.hasErrors('address')}" class="error" th:errors="*{address}">MISSING ADDRESS</span>
                 </td>
                 <td></td>
@@ -70,7 +70,7 @@
                 </th>
 
                 <td>
-                    <input type="text" th:field="*{phone}" />
+                    <input type="text" th:field="*{phone}" required/>
                     <span th:if="${#fields.hasErrors('phone')}" class="error" th:errors="*{phone}">MISSING PHONE</span>
                 </td>
                 <td></td>
@@ -81,7 +81,7 @@
                 </th>
 
                 <td>
-                    <input type="text" th:field="*{nr_cars}" />
+                    <input type="text" th:field="*{nr_cars}" required/>
                     <span th:if="${#fields.hasErrors('nr_cars')}" class="error" th:errors="*{nr_cars}">MISSING NUMBER CARS</span>
                 </td>
                 <td></td>

@@ -1,7 +1,8 @@
 package com.practicaIBM.Proiect_practicaIBM.controller;
 
+import com.practicaIBM.Proiect_practicaIBM.dto.CarDto;
 import com.practicaIBM.Proiect_practicaIBM.exception.NotFoundException;
-import com.practicaIBM.Proiect_practicaIBM.model.Car;
+import com.practicaIBM.Proiect_practicaIBM.entity.Car;
 import com.practicaIBM.Proiect_practicaIBM.service.CarsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -35,7 +36,7 @@ public class SingleCarController {
     }
 
     @PostMapping
-    public String save(@Validated Car car, BindingResult result, Locale locale) {
+    public String save(@Validated CarDto car, BindingResult result, Locale locale) {
         if (result.hasErrors()) {
             return "SingleCarEdit";
         }

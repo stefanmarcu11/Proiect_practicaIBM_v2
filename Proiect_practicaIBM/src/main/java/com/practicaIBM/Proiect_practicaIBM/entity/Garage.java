@@ -1,4 +1,4 @@
-package com.practicaIBM.Proiect_practicaIBM.model;
+package com.practicaIBM.Proiect_practicaIBM.entity;
 
 
 import lombok.Getter;

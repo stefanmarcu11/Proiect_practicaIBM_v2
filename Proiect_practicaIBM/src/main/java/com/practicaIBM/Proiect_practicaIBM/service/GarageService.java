@@ -1,12 +1,15 @@
 package com.practicaIBM.Proiect_practicaIBM.service;
 
-import com.practicaIBM.Proiect_practicaIBM.model.Garage;
+import com.practicaIBM.Proiect_practicaIBM.dto.GarageDto;
+import com.practicaIBM.Proiect_practicaIBM.entity.Garage;
+import com.practicaIBM.Proiect_practicaIBM.mapper.GarageMapper;
 import com.practicaIBM.Proiect_practicaIBM.repository.GarageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class GarageService {
@@ -14,11 +17,16 @@ public class GarageService {
     @Autowired
     GarageRepository garageRepository;
 
-    public List<Garage> getGarageList() {
+    @Autowired
+    GarageMapper mapper;
 
-        return (List<Garage>) garageRepository.findAll();
+    public List<GarageDto> getGarageList() {
+
+        return garageRepository.findAll().stream().map(g ->mapper.mapGarageDto(g)).collect(Collectors.toList());
+
     }
-    public void save(Garage garage) {
+    public void save(GarageDto garageDto) {
+        Garage garage = mapper.mapGarage(garageDto);
         garageRepository.save(garage);
 
     }
@@ -27,9 +35,10 @@ public class GarageService {
         garageRepository.deleteById(id);
     }
 
-    public Garage findgarageById(Garage garage){
+    public GarageDto findgarageById(int id){
 
-        return garageRepository.findById(garage.getId()).get();
+        Garage garage = garageRepository.findById(id).get();
+        return mapper.mapGarageDto(garage);
     }
     public Optional<Garage> findById(int id) {
 

@@ -82,32 +82,32 @@
 
 <form id="formdata" action="#" th:action="@{/submitCar}" th:object="${cars}" method="post" style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
    <div>
-       <label><b>Registrtion number</b></label>
-       <input placeholder="Adăugați numărul de înmatriculare" type="text" th:field="${cars.regnumber}" name="regnumber"/><br/>
+       <label><b>Registrtion number:</b></label>
+       <input placeholder="Add registration of number" type="text" th:field="${cars.regnumber}" name="regnumber" required/><br/>
    </div>
     <div>
-        <label><b>Car brand</b></label>
-        <input placeholder="Adăugați marca mașinii" type="text" th:field="${cars.carbrand}" name="carbrand"/><br/>
+        <label><b>Car brand:</b></label>
+        <input placeholder="Add car brand" type="text" th:field="${cars.carbrand}" name="carbrand" required/><br/>
     </div>
     <div>
-        <label><b>Model</b></label>
-        <input placeholder="Adăugați modelul mașinii" type="text" th:field="${cars.model}" name="model"/><br/>
+        <label><b>Model:</b></label>
+        <input placeholder="Add model of car" type="text" th:field="${cars.model}" name="model" required/><br/>
     </div>
     <div>
-        <label><b>Power (HP)</b></label>
-        <input placeholder="Adăugați puterea" type="text" th:field="${cars.power}" name="power"/><br/>
+        <label><b>Power (HP):</b></label>
+        <input placeholder="Add power of car" type="text" th:field="${cars.power}" name="power" required/><br/>
     </div>
     <div>
-        <label><b>Type</b></label>
-        <input placeholder="Adăugați tipul carosabilei" type="text" th:field="${cars.type}"name="type"/><br/>
+        <label><b>Type:</b></label>
+        <input placeholder="Add type of car" type="text" th:field="${cars.type}"name="type" required/><br/>
     </div>
     <div>
-        <label><b>Year of appearance</b></label>
-        <input placeholder="Adăugați anul fabricării" type="text" th:field="${cars.year}" name="year"/><br/>
+        <label><b>Year of appearance:</b></label>
+        <input placeholder="Add year of appearance" type="text" th:field="${cars.year}" name="year" required/><br/>
     </div>
     <div>
-        <label><b>Consumption (100 km)</b></label>
-        <input placeholder="Adăugați consumul" type="text" th:field="${cars.consumption}" name="consumption"/><br/>
+        <label><b>Consumption (100 km):</b></label>
+        <input placeholder="Add consumption of car" type="text" th:field="${cars.consumption}" name="consumption" required/><br/>
     </div>
 
     <div class="button">
@@ -115,7 +115,10 @@
         <a href="addgarage"><button id="btreset" type="reset" class="btn btn-outline-primary"><img class="img_reset" type="image/png" th:src="@{/images/restart.png}">Reset</button></a>
     </div>
 </form>
-<footer><p>Web Development with Spring Boot, IBM Romania</p></footer>
+<footer>
+    <p>Web Development with Spring Boot, IBM Romania</p>
+
+</footer>
 </body>
 <script th:src="@{/js/bootstrap.min.js}"></script>
 <script th:src="@{/js/script.js}"></script>

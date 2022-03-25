@@ -74,7 +74,7 @@
             <td><b>Tip</b></td>
             <td><b>An aparitie</b></td>
             <td><b>Consum (100 km)</b></td>
-            <td>Attributes</td>
+            <td><b>Actions</b></td>
         </tr>
         </thead>
         <tbody>
@@ -90,13 +90,13 @@
             <td class="actions">
                 <div>
                     <a style="text-decoration: none;"th:href="@{/cars/}+${car.id}">
-                        <button>Edit</button>
+                        <button class="btn btn-danger">Edit</button>
                     </a>
                 </div>
                 <div>
                     <form th:action="@{/deleteCar}" th:object="${car}" method="post">
                         <input class="d-none" name="carId" th:value="${car.id}">
-                        <button>Delete</button>
+                        <button class="btn btn-danger">Delete</button>
                     </form>
                 </div>
             </td>
