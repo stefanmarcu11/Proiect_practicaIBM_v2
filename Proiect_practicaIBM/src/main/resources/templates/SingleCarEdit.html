@@ -55,12 +55,12 @@
         <table>
             <tr>
                 <th>
-                    <label>Registration number:</label>
+                    <label>Number plate:</label>
                 </th>
 
                 <td>
                     <input type="text" th:field="*{regnumber}" required/>
-                    <span th:if="${#fields.hasErrors('regnumber')}" class="error" th:errors="*{regnumber}">MISSING FN</span>
+                    <span th:if="${#fields.hasErrors('regnumber')}" class="error" th:errors="*{regnumber}">MISSING NUMBER PLATE</span>
                 </td>
                 <td></td>
             </tr>
@@ -71,7 +71,7 @@
 
                 <td>
                     <input type="text" th:field="*{carbrand}" required/>
-                    <span th:if="${#fields.hasErrors('carbrand')}" class="error" th:errors="*{carbrand}">MISSING LN</span>
+                    <span th:if="${#fields.hasErrors('carbrand')}" class="error" th:errors="*{carbrand}">MISSING CAR BRAND</span>
                 </td>
                 <td></td>
             </tr>
@@ -82,7 +82,7 @@
 
                 <td>
                     <input type="text" th:field="*{model}" required/>
-                    <span th:if="${#fields.hasErrors('model')}" class="error" th:errors="*{model}">MISSING UN</span>
+                    <span th:if="${#fields.hasErrors('model')}" class="error" th:errors="*{model}">MISSING MODEL</span>
                 </td>
                 <td></td>
             </tr>
@@ -93,7 +93,7 @@
 
                 <td>
                     <input type="text" th:field="*{power}" required/>
-                    <span th:if="${#fields.hasErrors('power')}" class="error" th:errors="*{power}">MISSING LN</span>
+                    <span th:if="${#fields.hasErrors('power')}" class="error" th:errors="*{power}">MISSING POWER</span>
                 </td>
                 <td></td>
 
@@ -105,7 +105,7 @@
 
                 <td>
                     <input type="text" th:field="*{type}" required/>
-                    <span th:if="${#fields.hasErrors('type')}" class="error" th:errors="*{type}">MISSING LN</span>
+                    <span th:if="${#fields.hasErrors('type')}" class="error" th:errors="*{type}">MISSING TYPE</span>
                 </td>
                 <td></td>
 
@@ -131,7 +131,20 @@
 
                 <td>
                     <input type="text" th:field="*{consumption}" required/>
-                    <span th:if="${#fields.hasErrors('consumption')}" class="error" th:errors="*{consumption}">MISSING LN</span>
+                    <span th:if="${#fields.hasErrors('consumption')}" class="error" th:errors="*{consumption}">MISSING CONSUMPTION</span>
+                </td>
+                <td></td>
+
+
+            </tr>
+            <tr>
+                <th>
+                    <label>Garage:</label>
+                </th>
+
+                <td>
+                    <input type="text" th:field="*{garage}" required/>
+                    <span th:if="${#fields.hasErrors('garage')}" class="error" th:errors="*{garage}">MISSING GARAGE</span>
                 </td>
                 <td></td>
 

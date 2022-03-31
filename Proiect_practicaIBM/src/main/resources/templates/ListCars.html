@@ -74,6 +74,7 @@
             <td><b>Tip</b></td>
             <td><b>An aparitie</b></td>
             <td><b>Consum (100 km)</b></td>
+            <td><b>Garage</b></td>
             <td><b>Actions</b></td>
         </tr>
         </thead>
@@ -87,6 +88,7 @@
             <td th:text="${car.type}"></td>
             <td th:text="${car.year}"></td>
             <td th:text="${car.consumption}"></td>
+            <td th:text="${car.garage.address}"></td>
             <td class="actions">
                 <div>
                     <a style="text-decoration: none;"th:href="@{/cars/}+${car.id}">

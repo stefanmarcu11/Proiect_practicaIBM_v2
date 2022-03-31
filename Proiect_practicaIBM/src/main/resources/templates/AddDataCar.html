@@ -82,8 +82,8 @@
 
 <form id="formdata" action="#" th:action="@{/submitCar}" th:object="${cars}" method="post" style="display: flex; flex-direction:column; justify-content:center; align-items:center;">
    <div>
-       <label><b>Registrtion number:</b></label>
-       <input placeholder="Add registration of number" type="text" th:field="${cars.regnumber}" name="regnumber" required/><br/>
+       <label><b>Number plate:</b></label>
+       <input placeholder="Add number plate" type="text" th:field="${cars.regnumber}" name="regnumber" minlength="7" maxlength="8" required/><br/>
    </div>
     <div>
         <label><b>Car brand:</b></label>
@@ -103,15 +103,21 @@
     </div>
     <div>
         <label><b>Year of appearance:</b></label>
-        <input placeholder="Add year of appearance" type="text" th:field="${cars.year}" name="year" required/><br/>
+        <input placeholder="Add year of appearance" type="text" th:field="${cars.year}" name="year" minlength="4" maxlength="4" required/><br/>
     </div>
     <div>
         <label><b>Consumption (100 km):</b></label>
         <input placeholder="Add consumption of car" type="text" th:field="${cars.consumption}" name="consumption" required/><br/>
     </div>
+    <div>
+        <label><b>Garage:</b></label>
+        <select style="background-size:16px 18px;cursor:pointer; width:300px;">
+            <option th:each="g:${garageList}" th:value="${g.id}" th:text="${g.id}"></option>
+        </select>
+    </div>
 
     <div class="button">
-        <a href="addgarage"><button id="btadd" type="submit" class="btn btn-outline-primary"><img class="img_save" ty pe="image/png" th:src="@{/images/floppy-disk.png}">Save</button></a>
+        <button id="btadd" type="submit" class="btn btn-outline-primary"><img class="img_save" type="image/png" th:src="@{/images/floppy-disk.png}">Save</button>
         <a href="addgarage"><button id="btreset" type="reset" class="btn btn-outline-primary"><img class="img_reset" type="image/png" th:src="@{/images/restart.png}">Reset</button></a>
     </div>
 </form>

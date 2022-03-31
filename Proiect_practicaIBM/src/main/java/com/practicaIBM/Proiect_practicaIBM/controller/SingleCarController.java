@@ -3,8 +3,11 @@ package com.practicaIBM.Proiect_practicaIBM.controller;
 import com.practicaIBM.Proiect_practicaIBM.dto.CarDto;
 import com.practicaIBM.Proiect_practicaIBM.exception.NotFoundException;
 import com.practicaIBM.Proiect_practicaIBM.entity.Car;
+import com.practicaIBM.Proiect_practicaIBM.mapper.GarageMapper;
 import com.practicaIBM.Proiect_practicaIBM.service.CarsService;
+import com.practicaIBM.Proiect_practicaIBM.service.GarageService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -15,13 +18,16 @@ import java.util.Optional;
 
 @Controller
 @RequestMapping("/cars/{id}")
-@RequiredArgsConstructor
 public class SingleCarController {
 
-    private final CarsService carsService;
+    @Autowired
+    CarsService carsService;
+
+    @Autowired
+    GarageService garageService;
 
     @ModelAttribute("carId")
-    protected Car modelPerson(@PathVariable int id){
+    protected Car modelCar(@PathVariable int id){
         Optional<Car> carOpt = carsService.findById(id);
         if(carOpt.isPresent()) {
             return carOpt.get();
@@ -41,10 +47,13 @@ public class SingleCarController {
             return "SingleCarEdit";
         }
         try {
+            GarageMapper garageMapper = new GarageMapper();
+            car.setGarage(garageService.findgarageById(car.getGarage().getId()));
             carsService.save(car);
             return "redirect:/cars";
         } catch (Exception e ) {
-            return "redirect:/edit";
+            System.out.println(e);
+            return "redirect:/cars/{id}";
         }
     }
 

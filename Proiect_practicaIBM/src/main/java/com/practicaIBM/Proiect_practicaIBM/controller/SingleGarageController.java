@@ -21,7 +21,7 @@ public class SingleGarageController {
     private final GarageService garageService;
 
     @ModelAttribute("garageId")
-    protected Garage modelPerson(@PathVariable int id){
+    protected Garage modelGarage(@PathVariable int id){
         Optional<Garage> garageOpt = garageService.findById(id);
         if(garageOpt.isPresent()) {
             return garageOpt.get();

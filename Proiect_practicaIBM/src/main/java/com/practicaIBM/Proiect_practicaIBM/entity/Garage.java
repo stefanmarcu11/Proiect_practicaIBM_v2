@@ -1,20 +1,23 @@
 package com.practicaIBM.Proiect_practicaIBM.entity;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
 @Table(name="tb_garage")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Garage {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 
     @Column(name="address")
@@ -28,13 +31,6 @@ public class Garage {
     @Column(name="nr_cars")
     private int nr_cars;
 
-
-    public Garage(String address, String phone, int nr_cars) {
-        this.address = address;
-        this.phone = phone;
-        this.nr_cars = nr_cars;
-    }
-
-    public Garage() {
-    }
+    @OneToMany(mappedBy = "garage", fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Car> carList;
 }

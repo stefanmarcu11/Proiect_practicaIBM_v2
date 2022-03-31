@@ -22,7 +22,9 @@ public class GarageService {
 
     public List<GarageDto> getGarageList() {
 
-        return garageRepository.findAll().stream().map(g ->mapper.mapGarageDto(g)).collect(Collectors.toList());
+        return garageRepository.findAll().stream()
+                .map(g ->mapper.mapGarageDto(g))
+                .collect(Collectors.toList());
 
     }
     public void save(GarageDto garageDto) {
@@ -36,7 +38,6 @@ public class GarageService {
     }
 
     public GarageDto findgarageById(int id){
-
         Garage garage = garageRepository.findById(id).get();
         return mapper.mapGarageDto(garage);
     }
@@ -44,4 +45,5 @@ public class GarageService {
 
         return garageRepository.findById(id);
     }
+
 }

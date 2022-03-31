@@ -22,8 +22,9 @@ public class CarsService {
 
     public List<CarDto> getcarsList() {
 
-        return carsRepository.findAll().stream().map(c ->mapper.mapCarDto(c)).collect(Collectors.toList());
-        //(List<Car>) carsRepository.findAll();
+        return carsRepository.findAll().stream()
+                .map(c ->mapper.mapCarDto(c))
+                .collect(Collectors.toList());
     }
 
     public void save(CarDto carDto) {
